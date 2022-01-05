@@ -1,0 +1,15 @@
+{
+    "env": "production",
+    "dbConfig": {
+        "uri": "mongodb+srv://admin:5rLXre8A3GQC@cluster0.fmxxd.mongodb.net/tradeling?retryWrites=true&w=majority"
+    },
+    "secretKey": "secretKey",
+    "log": {
+        "format": "combined",
+        "dir": "../logs"
+    },
+    "cors": {
+        "origin": "your.domain.com",
+        "credentials": true
+    }
+}
