@@ -14,6 +14,7 @@ import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import StationSyncJob from './schedules/stations.schedule';
 
 class App {
   public app: express.Application;
@@ -30,6 +31,7 @@ class App {
     this.initializeRoutes(routes);
     this.initializeSwagger();
     this.initializeErrorHandling();
+    StationSyncJob.syncIndego();
   }
 
   public listen() {
@@ -66,7 +68,7 @@ class App {
 
   private initializeRoutes(routes: Routes[]) {
     routes.forEach(route => {
-      this.app.use('/', route.router);
+      this.app.use('/api/v1/', route.router);
     });
   }
 
