@@ -34,5 +34,5 @@ Content-Type: application/json
 DELETE {{ baseURL }}/users/1
 
 ###
-# Get Indegos
-GET {{ baseURL }}/indegos
+# Get Stations
+GET {{ baseURL }}/stations
