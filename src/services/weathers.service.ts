@@ -1,5 +1,4 @@
 import { HttpException } from '@exceptions/HttpException';
-import { isEmpty } from '@utils/util';
 import weathersModel from '@/models/weathers.model';
 import { Weather } from '@/interfaces/weathers.interface';
 import axios from 'axios';
@@ -17,6 +16,10 @@ class StationService {
     } catch (e) {
       throw new HttpException(500, 'Errors occurred in syncing');
     }
+  }
+
+  public async findWeatherByAt(at: Date): Promise<Weather[]> {
+    return await this.weathers.find({ at: at });
   }
 }
 

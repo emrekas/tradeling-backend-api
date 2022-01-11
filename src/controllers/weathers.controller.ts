@@ -20,7 +20,7 @@ class StationsController {
       const kioskId: number = parseInt(req.params.kioskId);
       const at = new Date(`${(req.query as any).at}.000Z`);
 
-      const findOneStation: Station = await this.stationService.findStationByIdAndDate(kioskId, at);
+      const findOneStation: Station = await this.stationService.findStationByIdAndDate(at, kioskId);
       res.status(200).json({ data: findOneStation, message: 'One station was found' });
     } catch (error) {
       next(error);

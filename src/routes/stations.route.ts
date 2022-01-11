@@ -12,7 +12,8 @@ class StationsRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}/:kioskId`, this.stationsController.getStationByIdAndDate);
+    this.router.get(`${this.path}/:kioskId`, this.stationsController.getStationByIdAndAt);
+    this.router.get(`${this.path}`, this.stationsController.getStationsByAt);
   }
 }
 
